@@ -22,3 +22,9 @@ jobs:
         run: |
           echo "::error file=entrypoint.sh,line=4,title=Error in container::The answer was not expected"
           exit 1
+
+      - name: Success notification
+        if: ${{ steps.action.outputs.answer == 42 }}
+        run: |
+          echo "::notice file=entrypoint.sh,line=4,title=Success::The answer matches expected value (42)!"
+          echo "✅ The container test passed successfully!"
