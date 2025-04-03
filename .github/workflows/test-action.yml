@@ -6,13 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo to use the action locally
-        uses: actions/checkout@v3.5.3
+        uses: actions/checkout@v4
         
       - name: Run my own container action
         id: action
-        uses: ./
+        uses: Roytrix/MyActionsInAction@main
         with:
-          who-to-greet: '@wulfland'
+          who-to-greet: '@Roytrix'
       
       - name: Output the answer
         run: echo "The answer is ${{ steps.action.outputs.answer }}"
